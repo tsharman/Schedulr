@@ -20,3 +20,18 @@ Features
 - Advanced search. Search by distribution requirements, number of credits or professor
 - Support for multiple schedules. Allows for alternate schedules, especially in the case that one doesn't work out
 - Asynchronous UI. No new page loads for searching, adding or removing classes.
+
+Notes
+-----
+- You will need to include a util/config.php that defines a couple variables in db.php. Mine looks like: 
+    
+    <?php
+
+        $db_username = {enter your username};
+        $db_password = {enter your password};
+        $db_database = {enter your db name};
+        $db_server = {enter your server};
+
+    ?>
+
+- data for the scraper files in scripts/ can be found at [The Office of the Registrar](http://www.ro.umich.edu/schedule/)
