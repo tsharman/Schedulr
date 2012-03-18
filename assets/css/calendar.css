@@ -1,0 +1,25 @@
+table {
+  table-layout: fixed;
+}
+
+thead tr {
+  height: 20px;
+}
+
+tr {
+  height: 50px;
+}
+
+.calendarCourse {
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+  position: absolute;
+  border: 1px solid #999;
+  background-color: #BBB;
+}
+
+.ghost {
+  opacity : .5;
+}
