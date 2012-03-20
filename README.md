@@ -31,5 +31,3 @@ Notes
           $db_database = {enter your db name};
           $db_server = {enter your server};
         ?>
-
-- data for the scraper files in scripts/ can be found at [The Office of the Registrar](http://www.ro.umich.edu/schedule/)
