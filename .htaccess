@@ -1,0 +1,9 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^/?$ /html/index.php [L]
+RewriteRule ^schedule/new/?$ /html/index.php?new=1 [L]
+RewriteRule ^schedule/([^/\.]+)/?$ /html/index.php?schedule=$1 [L]
+RewriteRule ^delete/([^/\.]+)/?$ /html/delete.php?schedule=$1 [L]
+RewriteRule ^login/?$ /html/login.php [L]
+RewriteRule ^logout/?$ /html/logout.php [L]
+RewriteRule ^trial/?$ /html/trial.php [L]

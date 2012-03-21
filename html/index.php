@@ -2,7 +2,7 @@
 
 session_start();
 if (!$_SESSION['user'])
-  header("Location: /login.php");
+  header("Location: /login");
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/user.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/schedule.php');
@@ -12,7 +12,7 @@ $user = new User($_SESSION['user']);
 // Create a new schedule
 if(isset($_GET['new'])) {
   $schedule_id = $user->newSchedule();
-  header("Location: /?schedule=".$schedule_id);
+  header("Location: /schedule/$schedule_id");
   exit;
 }
 
@@ -82,17 +82,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
 
           foreach($schedules as $i => $schedule) {
             $name = "Schedule #".($i+1);
-            $url = "/?schedule=".$schedule;
+            $url = "/schedule/$schedule";
             $item = <a class="btn" href={$url}>{$name}</a>;
             if($_GET['schedule'] == $schedule)
               $item->addClass("btn-info");
             $list->appendChild($item);
           }
-          $list->appendChild(<a class="btn" href="/?new=1">New</a>);
+          $list->appendChild(<a class="btn" href="/schedule/new">New</a>);
 
           $header_buttons->appendChild($list);
           if(isset($_GET['schedule'])) {
-            $url = "/delete.php?schedule=".$_GET['schedule'];
+            $url = "/delete/".$_GET['schedule'];
             $header_buttons->appendChild(
               <div class="pull-right btn-group">
                 <a href={$url} class="btn btn-danger">

@@ -75,7 +75,7 @@ if(isset($_SESSION['user'])) {
           <h3>Try Schedulr Out</h3><br/>
           You can try out Schedulr without signing up or logging in! <br/><br/>
           Note: You won't be able to save your schedules<br/> or use multiple schedules in trial mode<br/><br/>
-          <a class="btn" href="/trial.php">Try it out</a>
+          <a class="btn" href="/trial">Try it out</a>
         </div>
       </div>
       <div class="well" style="height:390px;">
