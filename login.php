@@ -39,7 +39,8 @@ if(isset($_SESSION['user'])) {
         <h1>schedulr</h1>
       </div>
       <div class="hidden well" id="signup_message">
-        Looks like you don't have an account. Sign up by re-entering your password
+        Looks like you don't have an account. Sign up by re-entering your password. 
+        <a href="#" onclick="removeSignup()">Not true, I just mistyped my uniqname</a>
       </div>
 			<form 
         id="login_form" 
@@ -63,6 +64,23 @@ if(isset($_SESSION['user'])) {
 				<button type="submit" class="btn btn-primary">Log In</button>
         <input id="submit_type" type="hidden" name="submit_type" value="login">
 			</form>
+      <div class="well" style="height:350px;">
+        <h2>Schedulr helps you schedule your classes</h2>
+        <br/>
+        <div class="row">
+          <img align="left" class="span5" src="/assets/img/schedule.png" />
+          <dl style="margin-top:0px" class="span5">
+            <h3><dt>Weekly Calendar View</dt></h3>
+            <p><dd>Watch your weekly schedule fill out as you add classes. See how each class will fit in your schedule before adding it.</dd></p>
+            <br/>
+            <h3><dt>Multiple Schedules</dt></h3>
+            <p><dd>Plan out multiple potential schedules so that you can make sure you're going to end up with a schedule you want, no matter what happens.</dd></p>
+            <br/>
+            <h3><dt>Advanced Search</dt></h3>
+            <p><dd>Search by department, course number range, distribution requirement, number of credits or professor.</dd></p>
+          </dl>
+        </div>
+      </div>
 		</div>
 	</body>
 </html>

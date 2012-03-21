@@ -1,3 +1,10 @@
+function removeSignup() {
+  $(signup_message).addClass("hidden");
+  $(password2).addClass("hidden");
+  $(password2).val("");
+  $(submit_type).val() = "login";
+}
+
 function submitLogin() {
   if($(submit_type).val() == "signup") {
     if($(password).val() != $(password2).val()) {
