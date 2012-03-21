@@ -46,7 +46,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
 						<h3>Sign up to be able to save your schedule, or plan out multiple schedules.</h3>
 					</div>
 					<div class="span2">
-						<a href="/login.php" class="pull-right btn btn-primary">Sign Up</a>
+						<a href="/login" class="pull-right btn btn-primary">Sign Up</a>
 					</div>
 				</div>
       <br/>
