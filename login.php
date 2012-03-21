@@ -81,6 +81,6 @@ if(isset($_SESSION['user'])) {
           </dl>
         </div>
       </div>
-		</div>
-	</body>
+    </div>
+  </body>
 </html>
