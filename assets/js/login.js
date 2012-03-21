@@ -2,7 +2,7 @@ function removeSignup() {
   $(signup_message).addClass("hidden");
   $(password2).addClass("hidden");
   $(password2).val("");
-  $(submit_type).val() = "login";
+  $(submit_type).val("login");
 }
 
 function submitLogin() {
