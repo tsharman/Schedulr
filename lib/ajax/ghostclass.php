@@ -12,7 +12,7 @@ $courseid = mysql_fetch_row($result);
 $count = $courseid[0];
 
 for($i = 0; $i < $count; $i++) {
-  echo <sc:calendar-course ghost={true} course={new Course($id, $i)} schedule={$_GET['schedule']} />;
+  echo <sc:calendar-course ghost={true} course={new Course($id, $i)} />;
 }
 
 ?>

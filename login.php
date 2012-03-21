@@ -42,33 +42,47 @@ if(isset($_SESSION['user'])) {
         Looks like you don't have an account. Sign up by re-entering your password. 
         <a href="#" onclick="removeSignup()">Not true, I just mistyped my uniqname</a>
       </div>
-			<form 
-        id="login_form" 
-        action="/lib/forms/loginprocessor.php" 
-        onsubmit="return submitLogin();" 
-        class="well"
-        method="POST">
-        <div>
-          If you are new here, enter your uniqname, and the password you would like to use for this site.<br/>
-          DO NOT use your kerberos password!
+      <div class="well" style="height:220px;">
+        <form 
+          id="login_form" 
+          action="/lib/forms/loginprocessor.php" 
+          onsubmit="return submitLogin();" 
+          class="span5"
+          method="POST">
+          <h3>Login or Signup</h3><br/>
+          <div>
+            If you are new here, enter your uniqname, and the password you would like to use for this site.<br/>
+            DO NOT use your kerberos password!
+          </div>
+          <br/>
+          <div><input id="uniqname" type="text" name="uniqname" placeholder="Uniqname"></div>
+          <div><input id="password" type="password" name="password" placeholder="Password"></div>
+          <div><input 
+            class="hidden"
+            id="password2" 
+            type="password" 
+            name="password2" 
+            placeholder="Re-enter Password"></div>
+          <button type="submit" class="btn btn-primary">Log In</button>
+          <input id="submit_type" type="hidden" name="submit_type" value="login">
+        </form>
+        <div align="center" class="span1">
+        <div style="border-left:1px solid #CCC; margin-left: 30px; height:95px"></div>
+        <h2>OR</h2>
+        <div style="border-left:1px solid #CCC; margin-left: 30px; height:95px"></div>
         </div>
-        <br/>
-				<div><input id="uniqname" type="text" name="uniqname" placeholder="Uniqname"></div>
-				<div><input id="password" type="password" name="password" placeholder="Password"></div>
-        <div><input 
-          class="hidden"
-          id="password2" 
-          type="password" 
-          name="password2" 
-          placeholder="Re-enter Password"></div>
-				<button type="submit" class="btn btn-primary">Log In</button>
-        <input id="submit_type" type="hidden" name="submit_type" value="login">
-			</form>
-      <div class="well" style="height:350px;">
+        <div align="right" class="span5">
+          <h3>Try Schedulr Out</h3><br/>
+          You can try out Schedulr without signing up or logging in! <br/><br/>
+          Note: You won't be able to save your schedules<br/> or use multiple schedules in trial mode<br/><br/>
+          <a class="btn" href="/trial.php">Try it out</a>
+        </div>
+      </div>
+      <div class="well" style="height:390px;">
         <h2>Schedulr helps you schedule your classes</h2>
         <br/>
         <div class="row">
-          <img align="left" class="span5" src="/assets/img/schedule.png" />
+          <img align="left" class="span6" src="/assets/img/schedule.png" />
           <dl style="margin-top:0px" class="span5">
             <h3><dt>Weekly Calendar View</dt></h3>
             <p><dd>Watch your weekly schedule fill out as you add classes. See how each class will fit in your schedule before adding it.</dd></p>

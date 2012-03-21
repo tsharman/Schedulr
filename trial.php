@@ -1,32 +1,7 @@
 <?php
 
-session_start();
-if (!$_SESSION['user'])
-  header("Location: /login.php");
-
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/user.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/schedule.php');
-
-$user = new User($_SESSION['user']);
-
-// Create a new schedule
-if(isset($_GET['new'])) {
-  $schedule_id = $user->newSchedule();
-  header("Location: /?schedule=".$schedule_id);
-  exit;
-}
-
-if(isset($_GET['schedule'])) {
-  $schedule_id = $_GET['schedule'];
-  $schedule = new Schedule($schedule_id);
-
-  if($schedule->getOwnerID() != $_SESSION['user'] && $_SESSION['user'] != 'kgaurav') {
-    // Not correct owner, go to home
-    header("Location: /"); 
-    exit;
-  }
-}
-
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
 
 ?>
@@ -34,19 +9,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
- 		<script type="text/javascript">
-			var trial = false;
-      <?php
-        echo "var user = '".$_SESSION['user']."';"; 
-        if($schedule_id)
-          echo "var schedule = ".$schedule_id.";"; 
-      ?>
-    </script>
     <script 
       type="text/javascript" 
       src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js">
     </script>
     <script type="text/javascript" src="/assets/js/schedule.js"></script>
+    <script type="text/javascript">
+			var trial = true;
+		</script>
 	  <link rel="stylesheet" type="text/css" href="/assets/css/master.css">
 	  <link rel="stylesheet" type="text/css" href="/assets/css/calendar.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
@@ -72,43 +42,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
         <h1>schedulr</h1>
       </div>
         <div class="row">
-          <div class="span12">
-        <?php
-          $header_buttons = <div class="btn-toolbar"></div>;
-          $list = <div class="pull-left btn-group" style="width:500px"></div>;
-          
-          $user = new User($_SESSION['user']);
-          $schedules = $user->getScheduleIDs();
-
-          foreach($schedules as $i => $schedule) {
-            $name = "Schedule #".($i+1);
-            $url = "/?schedule=".$schedule;
-            $item = <a class="btn" href={$url}>{$name}</a>;
-            if($_GET['schedule'] == $schedule)
-              $item->addClass("btn-info");
-            $list->appendChild($item);
-          }
-          $list->appendChild(<a class="btn" href="/?new=1">New</a>);
-
-          $header_buttons->appendChild($list);
-          if(isset($_GET['schedule'])) {
-            $url = "/delete.php?schedule=".$_GET['schedule'];
-            $header_buttons->appendChild(
-              <div class="pull-right btn-group">
-                <a href={$url} class="btn btn-danger">
-                  Delete this schedule
-                </a>
-              </div>
-            );
-          }
-          echo $header_buttons;
-        ?>
-        </div></div>
-      <?php if($schedule_id) { ?>
+          <div class="span10">
+						<h3>Sign up to be able to save your schedule, or plan out multiple schedules.</h3>
+					</div>
+					<div class="span2">
+						<a href="/login.php" class="pull-right btn btn-primary">Sign Up</a>
+					</div>
+				</div>
       <br/>
       <div class="row">
         <div class="span8">
-          <? echo <sc:calendar schedule={new Schedule($schedule_id)} /> ?>
+          <? echo <sc:calendar /> ?>
         </div>
         <div class="span4">
           <input id="search-type" type="hidden" value="basic">
@@ -175,11 +119,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
               </div>
             </fieldset>
           </div>
-          
           <div id="results" style="margin-top: 20px; height:520px; overflow-y:scroll">
         </div>
       </div>
-      <?php } ?>
     </div>
   </body>
 </html>

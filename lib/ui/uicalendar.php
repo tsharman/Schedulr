@@ -8,7 +8,7 @@ require_once('uicalendarcourse.php');
 
 class :sc:calendar extends :x:element {
   attribute
-    Schedule schedule @required;
+    Schedule schedule;
 
   protected function render() {
     $header = 
@@ -45,11 +45,13 @@ class :sc:calendar extends :x:element {
 
     
     // display classes
-    $schedule = $this->getAttribute("schedule");
-    foreach ($schedule->getCourses() as $course) {
-      $ret->appendChild(
-        <sc:calendar-course course={$course} schedule={$schedule->getID()} />
-      );
+    if($this->getAttribute("schedule")) {
+      $schedule = $this->getAttribute("schedule");
+      foreach ($schedule->getCourses() as $course) {
+        $ret->appendChild(
+          <sc:calendar-course course={$course} />
+        );
+      }
     }
 
     return $ret;

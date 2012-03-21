@@ -81,11 +81,16 @@ function search() {
 }
 
 function addCourse(id) {
+  $(".ghost").addClass("recentAdd");
   $(".ghost").removeClass("ghost");
+	console.log(trial)
+	if(trial)
+		return;
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      console.log("success");
+			$("#calendarBackground").append(xmlhttp.responseText);
+			$(".recentAdd").remove();
     }
   }
   xmlhttp.open("GET","/lib/ajax/addclass.php?id="+id+"&schedule="+schedule, true);
@@ -100,7 +105,7 @@ function ghostCourse(id) {
       $("#calendarBackground").append(xmlhttp.responseText);
     }
   }
-  xmlhttp.open("GET","/lib/ajax/ghostclass.php?id="+id+"&schedule="+schedule, true);
+  xmlhttp.open("GET","/lib/ajax/ghostclass.php?id="+id, true);
   xmlhttp.send();
 }
 
