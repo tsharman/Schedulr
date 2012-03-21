@@ -25,7 +25,7 @@ class :sc:calendar-course extends :x:element {
       $left = ($day * 112) + 60;
       $style = "left: ".$left."px; top: ".$top."px; height: ".$length."px;";
       $title = $course->getDept()." ".$course->getNum()." - ".$course->getTitle();
-      $onclick = "removeClass(".$course->getID().")";
+      $onclick = "removeCourse(".$course->getID().")";
       $course_markup = 
         <div class={$class} style={$style}>
           <a style="margin-top: -5px;" class="close" onclick={$onclick}>&times;</a>

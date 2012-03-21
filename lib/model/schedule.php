@@ -30,7 +30,11 @@ class Schedule {
       DBQuery("SELECT * FROM schedule_to_course WHERE scheduleid=".$this->id);
 		$courseIDs = array();
 		while($row = mysql_fetch_assoc($result)) {
-			$courseIDs[] = $row['courseid'];
+			$count = DBQuery("SELECT COUNT(*) FROM courses WHERE courseid=".$row['courseid']);
+			$count = mysql_fetch_row($count);
+			$count = $count[0];
+
+			$courseIDs[$row['courseid']] = $count;
 		}
 		return $courseIDs;
 	}
@@ -38,8 +42,10 @@ class Schedule {
 	public function getCourses() {
 		$courseIDs = $this->getCourseIDs();
 		$courses = array();
-		foreach($courseIDs as $courseID) {
-			$courses[] = new Course($courseID);
+		foreach($courseIDs as $courseID => $count) {
+			for($i = 0; $i < $count; $i++) {
+				$courses[] = new Course($courseID, $i);
+			}
 		}
 		return $courses;
 	}
@@ -47,7 +53,7 @@ class Schedule {
 	public function addCourse($courseID) {
     // Check if it's already in the schedule
     $courseIDs = $this->getCourseIDs();
-    if(!in_array($courseID, $courseIDs)) 
+    if(!array_key_exists($courseID, $courseIDs)) 
       DBQuery("INSERT INTO schedule_to_course VALUES (".$this->id.",
                                                       ".$courseID.")");
 	}

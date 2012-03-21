@@ -10,17 +10,17 @@ function addEventHandlers() {
   $(".courseInfo").bind({
     click: function(event) {
       var id = $(this).attr("data-id");
-      addClass(id);
+      addCourse(id);
     },
     mouseenter: function(event) {
       if(event.target === this) {
         var id = $(this).attr("data-id");
-        ghostClass(id);
+        ghostCourse(id);
       }
     },
     mouseleave: function(event) {
       if(event.target === this) {
-        unghostClass();
+        unghostCourse();
       }
     }
   });
@@ -80,20 +80,19 @@ function search() {
   }
 }
 
-function addClass(id) {
-  $(".ghost").remove();
+function addCourse(id) {
+  $(".ghost").removeClass("ghost");
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      $("#calendarBackground").append(xmlhttp.responseText);
+      console.log("success");
     }
   }
   xmlhttp.open("GET","/lib/ajax/addclass.php?id="+id+"&schedule="+schedule, true);
   xmlhttp.send();
 }
 
-function ghostClass(id) {
-  console.log(id);
+function ghostCourse(id) {
   $(".ghost").remove();
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
@@ -105,11 +104,11 @@ function ghostClass(id) {
   xmlhttp.send();
 }
 
-function unghostClass(e) {
+function unghostCourse(e) {
   $(".ghost").remove();
 }
 
-function removeClass(id) {
+function removeCourse(id) {
   $("."+id).remove();
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {

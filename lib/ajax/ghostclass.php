@@ -6,6 +6,13 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendarcourse.php');
 
 $id = $_GET['id'];
 
-echo <sc:calendar-course ghost={true} course={new Course($id)} schedule={$_GET['schedule']} />;
+$result = DBQuery("SELECT count(courseid) FROM courses WHERE courseid=".$id);
+
+$courseid = mysql_fetch_row($result);
+$count = $courseid[0];
+
+for($i = 0; $i < $count; $i++) {
+  echo <sc:calendar-course ghost={true} course={new Course($id, $i)} schedule={$_GET['schedule']} />;
+}
 
 ?>

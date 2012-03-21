@@ -29,11 +29,11 @@ class Course {
 		"SEM"=>"Seminar"
 	);
 	
-	public function __construct($id) {
+	public function __construct($id, $offset = 0) {
 		$this->id = $id;
 		
 		// load all data
-		$result = mysql_fetch_assoc(DBSelectCourses("courseid=".$id));
+		$result = mysql_fetch_assoc(DBSelectCourses("courseid=".$id." LIMIT ".$offset.",1"));
 		$this->title = $result['title'];
 		$this->num = $result['catalognum'];
 		$this->dept = $result['dept'];
