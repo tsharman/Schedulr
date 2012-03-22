@@ -16,7 +16,7 @@ if($_POST['submit_type'] == "signup") {
 // logging in
 else {
   if(!$uniqname || !$password)
-    header("Location: /login.php");
+    header("Location: /login");
 
   $results = DBSelectUsers("uniqname='$uniqname' AND password='".sha1($password)."';");
   if(mysql_num_rows($results)) {
@@ -25,6 +25,6 @@ else {
     $_SESSION['user'] = $row['uniqname'];
     header("Location: /");
   } else {
-    header("Location: /login.php");
+    header("Location: /login");
   }
 }
