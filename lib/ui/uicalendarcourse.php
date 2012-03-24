@@ -31,6 +31,7 @@ class :sc:calendar-course extends :x:element {
           </div>
           <div class="calendarCourseLoc">{$course->getLocation()}</div>
         </div>;
+			$course_markup->setAttribute("data-id", $course->getID());
       $ret->appendChild($course_markup);
     }
     return $ret;

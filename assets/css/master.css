@@ -1,3 +1,26 @@
 .hidden {
   display:none;
 }
+
+#shadow {
+	background-color: #333333;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	opacity: .75; 
+}
+
+#alert-message {
+	position: absolute;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 5px;
+	moz-border-radius: 5px;
+	text-align: center;
+	padding: 10px;
+	z-index: 2;
+}

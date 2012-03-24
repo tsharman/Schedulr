@@ -124,3 +124,36 @@ function removeCourse(id) {
   xmlhttp.open("GET","/lib/ajax/removeclass.php?id="+id+"&schedule="+schedule, true);
   xmlhttp.send();
 }
+
+function showSignup() {
+	$("#shadow").width($(document).width());
+	$("#shadow").height($(document).height());
+	$("#shadow").removeClass("hidden");
+	$("#alert-message").removeClass("hidden");
+	var markup = 
+		"<h3>"+
+			"This is a list of your course IDs. Enter these into "+
+			"<a href='http://wolverineaccess.umich.edu' target='_blank'>Wolverine Access</a>"+
+		"</h3><br/>";
+
+	markup += "<p>";
+	var ids = new Array();
+	$(".calendarCourse").each(function(i) {
+		var name = $(this).children(".calendarCourseName").html();
+		var id = $(this).data("id");
+		if($.inArray(id, ids) === -1) {
+			markup += name + " : " + id + "<br/>";
+			ids.push(id);
+		}
+	});
+	markup += "</p>";
+
+	$("#alert-message").html(markup);
+	var messageleft = ((($(document).width())/2) - (($("#alert-message").width())/2));
+	$("#alert-message").offset({ top: 200, left: messageleft});
+
+	$("#shadow").click(function() {
+		$("#shadow").addClass("hidden");
+		$("#alert-message").addClass("hidden");
+	});
+}

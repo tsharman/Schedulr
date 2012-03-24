@@ -67,6 +67,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
     </script>
   </head>
   <body>
+		<div id="shadow" class="hidden">
+		</div>
+		<div id="alert-message" class="hidden">
+		</div>
     <div class="container">
       <div class="page-header">
         <h1>schedulr</h1>
@@ -94,10 +98,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
           if(isset($_GET['schedule'])) {
             $url = "/delete/".$_GET['schedule'];
             $header_buttons->appendChild(
-              <div class="pull-right btn-group">
+              <div class="pull-right btn-toolbar">
+								<div class="btn-group">
+								<a onclick="showSignup()" class="btn">
+									Register this schedule
+								</a>
+								</div>
+								<div class="btn-group">
                 <a href={$url} class="btn btn-danger">
                   Delete this schedule
                 </a>
+								</div>
               </div>
             );
           }
