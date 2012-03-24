@@ -23,3 +23,16 @@ tr {
 .ghost {
   opacity : .5;
 }
+
+.LEC.well {
+	background-color: #ebf9ff;
+}
+
+.DIS.well {
+	background-color: #fff9eb;
+}
+
+.LAB.well {
+	background-color: #f9ebff;
+}
+

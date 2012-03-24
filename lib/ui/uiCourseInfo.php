@@ -14,7 +14,7 @@ class :sc:course-info extends :x:element {
     $coursenum = $course->getDept()." ".$course->getNum();
     $time = $course->getCalendarTime();
     
-    $class = "courseInfo well";
+    $class = "courseInfo well ".$course->getType();
     $ret = 
       <div class={$class}>
         <div class="courseName">
