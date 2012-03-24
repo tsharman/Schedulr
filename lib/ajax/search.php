@@ -11,16 +11,16 @@ $search = str_replace(array("TECH COMM", "TECHCOMM"), "TCHNCLCM", $search);
 // calc
 if(strstr($search, "CALC")) {
 	if($search == "CALC 1" || $search == "CALC1") {
-		$query = 'dept="MATH" AND (catalognum=115 OR catalognum=185) ORDER BY catalognum';
+		$query = 'dept="MATH" AND (catalognum=115 OR catalognum=185)';
 		echo search($query);
 	} else if($search == "CALC 2" || $search == "CALC2") {
-		$query = 'dept="MATH" AND (catalognum=116 OR catalognum=186) ORDER BY catalognum';
+		$query = 'dept="MATH" AND (catalognum=116 OR catalognum=186)';
 		echo search($query);
 	} else if($search == "CALC 3" || $search == "CALC3") {
-		$query = 'dept="MATH" AND (catalognum=215 OR catalognum=255 OR catalognum=285) ORDER BY catalognum';
+		$query = 'dept="MATH" AND (catalognum=215 OR catalognum=255 OR catalognum=285)';
 		echo search($query);
 	} else if($search == "CALC 4" || $search == "CALC4") {
-		$query = 'dept="MATH" AND (catalognum=216 OR catalognum=256 OR catalognum=286) ORDER BY catalognum';
+		$query = 'dept="MATH" AND (catalognum=216 OR catalognum=256 OR catalognum=286)';
 		echo search($query);
 	} else {
 		$search = str_replace("CALC", "MATH", $search);
@@ -29,10 +29,10 @@ if(strstr($search, "CALC")) {
 // orgo
 if(strstr($search, "ORGO")) {
 	if($search == "ORGO 1" || $search == "ORGO1") {
-		$query = 'dept="CHEM" AND (catalognum=210 OR catalognum=211) ORDER BY catalognum';
+		$query = 'dept="CHEM" AND (catalognum=210 OR catalognum=211)';
 		echo search($query);
 	} else if($search == "ORGO 2" || $search == "ORGO2") {
-		$query = 'dept="CHEM" AND (catalognum=215 OR catalognum=216) ORDER BY catalognum';
+		$query = 'dept="CHEM" AND (catalognum=215 OR catalognum=216)';
 		echo search($query);
 	} else {
 		$search = str_replace("ORGO", "CHEM", $search);
@@ -50,6 +50,11 @@ if(count($searchtry) == 1) {
 	list($dept, $num) = $searchtry;
 }
 if($dept) {
+	// bio
+	if($dept == "BIO")
+		$dept = "BIOLOGY";
+	if($dept == "ANTHRO")
+		$dept = "ANTHRCUL";
 	$query = 'dept="'.$dept.'"';
 	if($num) {
 		$query.='AND catalognum='.$num;
