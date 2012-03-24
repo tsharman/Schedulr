@@ -61,6 +61,7 @@ return null;
 
 function search($query) {
   $query .= " GROUP BY courseid";
+	$query .= " ORDER BY dept, catalognum, section";
 	$result = DBSelectCourses($query);
   $ret = <x:frag></x:frag>;
 	if(mysql_num_rows($result) == 0) {
