@@ -11,8 +11,12 @@ $result = DBQuery("SELECT count(courseid) FROM courses WHERE courseid=".$id);
 $courseid = mysql_fetch_row($result);
 $count = $courseid[0];
 
+$courses = array();
+
 for($i = 0; $i < $count; $i++) {
-  echo <sc:calendar-course ghost={true} course={new Course($id, $i)} />;
+	$course = new Course($id, $i);
+	$courses[] = $course->getArray();
 }
+echo json_encode($courses);
 
 ?>

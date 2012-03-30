@@ -49,6 +49,18 @@ class Schedule {
 		}
 		return $courses;
 	}
+
+	public function getCoursesJSON() {
+		$courseIDs = $this->getCourseIDs();
+		$courses = array();
+		foreach($courseIDs as $courseID => $count) {
+			for($i = 0; $i < $count; $i++) {
+				$courseObj = new Course($courseID, $i);
+				$courses[] = $courseObj->getArray();
+			}
+		}
+		return $courses;
+	}
 	
 	public function addCourse($courseID) {
     // Check if it's already in the schedule

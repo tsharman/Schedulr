@@ -11,7 +11,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <script 
       type="text/javascript" 
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js">
+      src="http://code.jquery.com/jquery-latest.min.js">
     </script>
     <script type="text/javascript" src="/assets/js/schedule.js"></script>
     <script type="text/javascript">

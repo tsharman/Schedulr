@@ -55,6 +55,25 @@ class Course {
 		if($result['SA']) {$this->days[] = "5";}
 		if($result['SU']) {$this->days[] = "6";}		
 	}
+
+	public function getArray() {
+		return array(
+			"id" => $this->id,
+			"title" => $this->title,
+			"dept" => $this->dept,
+			"num" => $this->num,
+			"section" => $this->getSection(),
+			"type" => $this->type,
+			"typefull" => $this->getTypeFull(),
+			"prof" => $this->prof,
+			"req" => $this->req,
+			"time" => $this->time,
+			"caltime" => $this->getCalendarTime(),
+			"days" => $this->days,
+			"location" => $this->location,
+			"credits" => $this->credits
+		);
+	}
 	
 	public function getID() {
 		return $this->id;

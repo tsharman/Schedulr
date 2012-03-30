@@ -44,9 +44,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
     </script>
     <script 
       type="text/javascript" 
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js">
+      src="http://code.jquery.com/jquery-latest.min.js">
     </script>
     <script type="text/javascript" src="/assets/js/schedule.js"></script>
+    <script type="text/javascript" src="/assets/js/calendar.js"></script>
 	  <link rel="stylesheet" type="text/css" href="/assets/css/master.css">
 	  <link rel="stylesheet" type="text/css" href="/assets/css/calendar.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
@@ -75,9 +76,11 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
       <div class="page-header">
         <h1>schedulr</h1>
       </div>
-        <div class="row">
-          <div class="span12">
-        <?php
+
+			<!-- Top row buttons -->
+			<div class="row">
+				<div class="span12">
+				<?php
           $header_buttons = <div class="btn-toolbar"></div>;
           $list = <div class="pull-left btn-group" style="width:500px"></div>;
           
@@ -114,15 +117,24 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
           }
           echo $header_buttons;
         ?>
-        </div></div>
+        </div>
+			</div>
+
       <?php if($schedule_id) { ?>
       <br/>
       <div class="row">
+
+				<!-- Calendar -->
         <div class="span8">
-          <? echo <sc:calendar schedule={new Schedule($schedule_id)} /> ?>
+					<div id="div-calendar" style="position: absolute"></div>
+					<canvas id="canvas-calendar" width="620px"></canvas>
         </div>
+
+				<!-- Search -->
         <div class="span4">
           <input id="search-type" type="hidden" value="basic">
+
+					<!-- Basic Search Form -->
           <div id="basic-search"> 
             <input id="query" type="text" class="input-medium search-query">
             <span class="pull-right btn-group">
@@ -131,6 +143,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
             </span>
           </div>
 
+					<!-- Advanced Search Form -->
           <div class="form-horizontal hidden" id="advanced-search" >
             <fieldset>
               <div class="control-group">
@@ -144,7 +157,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
                 <div class="controls">
                   <select id="num_select" style="width: 50px">
                     <option><</option>
-                    <option>=</option>
+                    <option selected>=</option>
                     <option>></option>
                   </select>
                   <input id="in_num" type="text" class="input-small" placeholder="num" />

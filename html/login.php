@@ -11,7 +11,7 @@ if(isset($_SESSION['user'])) {
   <head>		
     <script 
       type="text/javascript" 
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js">
+      src="http://code.jquery.com/jquery-latest.min.js">
     </script>
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/assets/js/login.js"></script>
