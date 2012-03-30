@@ -8,6 +8,5 @@ $id = $_GET['id'];
 
 $schedule = new Schedule($_GET['schedule']);
 $schedule->addCourse($id);
-echo <sc:calendar-course course={new Course($id)} />;
 
 ?>

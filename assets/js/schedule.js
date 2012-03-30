@@ -81,18 +81,10 @@ function search() {
 }
 
 function addCourse(id) {
-  $(".ghost").addClass("recentAdd");
   $(".ghost").removeClass("ghost");
-	console.log(trial)
 	if(trial)
 		return;
   xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			$("#calendarBackground").append(xmlhttp.responseText);
-			$(".recentAdd").remove();
-    }
-  }
   xmlhttp.open("GET","/lib/ajax/addclass.php?id="+id+"&schedule="+schedule, true);
   xmlhttp.send();
 }
