@@ -5,6 +5,8 @@ A tool to make scheduling class at the University of Michigan easier
 Schedulr was primarily in php using Facebook's XHP extension.
 Styles are done using twitter bootstrap (with slight modifications)
 
+If you plan on contributing to Schedulr, please read the wiki on contributing.
+
 Requirements
 ------------
 - LAMP (or similar)
