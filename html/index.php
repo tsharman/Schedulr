@@ -34,8 +34,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
- 		<script type="text/javascript">
-			var trial = false;
+    <script type="text/javascript">
+      var trial = false;
       <?php
         echo "var user = '".$_SESSION['user']."';"; 
         if($schedule_id)
@@ -48,8 +48,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
     </script>
     <script type="text/javascript" src="/assets/js/schedule.js"></script>
     <script type="text/javascript" src="/assets/js/calendar.js"></script>
-	  <link rel="stylesheet" type="text/css" href="/assets/css/master.css">
-	  <link rel="stylesheet" type="text/css" href="/assets/css/calendar.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/master.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/calendar.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
 
     <!-- Google Analytics Code -->
@@ -68,19 +68,19 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
     </script>
   </head>
   <body>
-		<div id="shadow" class="hidden">
-		</div>
-		<div id="alert-message" class="hidden">
-		</div>
+    <div id="shadow" class="hidden">
+    </div>
+    <div id="alert-message" class="hidden">
+    </div>
     <div class="container">
       <div class="page-header">
         <h1>schedulr</h1>
       </div>
 
-			<!-- Top row buttons -->
-			<div class="row">
-				<div class="span12">
-				<?php
+      <!-- Top row buttons -->
+      <div class="row">
+        <div class="span12">
+        <?php
           $header_buttons = <div class="btn-toolbar"></div>;
           $list = <div class="pull-left btn-group" style="width:500px"></div>;
           
@@ -101,40 +101,40 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
           if(isset($_GET['schedule'])) {
             $url = "/delete/".$_GET['schedule'];
             $header_buttons->appendChild(
-							<div class="pull-right btn-group">
+              <div class="pull-right btn-group">
                 <a href={$url} class="btn btn-danger">
                   Delete this schedule
                 </a>
-							</div>
+              </div>
             );
             $header_buttons->appendChild(
-							<div class="pull-right btn-group">
-								<a onclick="showSignup()" class="btn">
-									Register this schedule
-								</a>
-							</div>
-						);
+              <div class="pull-right btn-group">
+                <a onclick="showSignup()" class="btn">
+                  Register this schedule
+                </a>
+              </div>
+            );
           }
           echo $header_buttons;
         ?>
         </div>
-			</div>
+      </div>
 
       <?php if($schedule_id) { ?>
       <br/>
       <div class="row">
 
-				<!-- Calendar -->
+        <!-- Calendar -->
         <div class="span8">
-					<div id="div-calendar" style="position: absolute"></div>
-					<canvas id="canvas-calendar" width="620px"></canvas>
+          <div id="div-calendar" style="position: absolute"></div>
+          <canvas id="canvas-calendar" width="620px"></canvas>
         </div>
 
-				<!-- Search -->
+        <!-- Search -->
         <div class="span4">
           <input id="search-type" type="hidden" value="basic">
 
-					<!-- Basic Search Form -->
+          <!-- Basic Search Form -->
           <div id="basic-search"> 
             <input id="query" type="text" class="input-medium search-query">
             <span class="pull-right btn-group">
@@ -143,7 +143,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
             </span>
           </div>
 
-					<!-- Advanced Search Form -->
+          <!-- Advanced Search Form -->
           <div class="form-horizontal hidden" id="advanced-search" >
             <fieldset>
               <div class="control-group">

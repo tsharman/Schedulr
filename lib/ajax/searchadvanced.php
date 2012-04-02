@@ -67,7 +67,7 @@ while($row = mysql_fetch_assoc($result)) {
   $ret->appendChild(
       <sc:course-info course={new Course($courseID)} />
   );
-}	
+} 
 
 echo $ret;
 

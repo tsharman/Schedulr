@@ -15,10 +15,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
     </script>
     <script type="text/javascript" src="/assets/js/schedule.js"></script>
     <script type="text/javascript">
-			var trial = true;
-		</script>
-	  <link rel="stylesheet" type="text/css" href="/assets/css/master.css">
-	  <link rel="stylesheet" type="text/css" href="/assets/css/calendar.css">
+      var trial = true;
+    </script>
+    <link rel="stylesheet" type="text/css" href="/assets/css/master.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/calendar.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
 
     <!-- Google Analytics Code -->
@@ -43,12 +43,12 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
       </div>
         <div class="row">
           <div class="span10">
-						<h3>Sign up to be able to save your schedule, or plan out multiple schedules.</h3>
-					</div>
-					<div class="span2">
-						<a href="/login" class="pull-right btn btn-primary">Sign Up</a>
-					</div>
-				</div>
+            <h3>Sign up to be able to save your schedule, or plan out multiple schedules.</h3>
+          </div>
+          <div class="span2">
+            <a href="/login" class="pull-right btn btn-primary">Sign Up</a>
+          </div>
+        </div>
       <br/>
       <div class="row">
         <div class="span8">

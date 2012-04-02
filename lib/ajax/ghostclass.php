@@ -14,8 +14,8 @@ $count = $courseid[0];
 $courses = array();
 
 for($i = 0; $i < $count; $i++) {
-	$course = new Course($id, $i);
-	$courses[] = $course->getArray();
+  $course = new Course($id, $i);
+  $courses[] = $course->getArray();
 }
 echo json_encode($courses);
 

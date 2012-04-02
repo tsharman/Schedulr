@@ -2,13 +2,13 @@
 
 session_start();
 if(isset($_SESSION['user'])) {
-	header('Location: /');
+  header('Location: /');
 }
 
 ?>
 
 <html>
-  <head>		
+  <head>    
     <script 
       type="text/javascript" 
       src="http://code.jquery.com/jquery-latest.min.js">
@@ -33,8 +33,8 @@ if(isset($_SESSION['user'])) {
 
     </script>
   </head>
-	<body>
-		<div class="container">
+  <body>
+    <div class="container">
       <div class="page-header">
         <h1>schedulr</h1>
       </div>

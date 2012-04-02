@@ -11,8 +11,8 @@ tr {
 }
 
 .calendarCourse {
-	border-radius: 5px;
-	-moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
   padding: 5px;
   width: 100px;
   position: absolute;
@@ -25,14 +25,14 @@ tr {
 }
 
 .LEC.well {
-	background-color: #ebf9ff;
+  background-color: #ebf9ff;
 }
 
 .DIS.well {
-	background-color: #fff9eb;
+  background-color: #fff9eb;
 }
 
 .LAB.well {
-	background-color: #f9ebff;
+  background-color: #f9ebff;
 }
 

@@ -25,6 +25,6 @@
       echo $dept.$catalognum."\n";
       $result = DBQueryIgnoreError($sql);
     }
-	}
+  }
 
 ?>
