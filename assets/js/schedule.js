@@ -158,3 +158,9 @@ function showSignup() {
     $("#alert-message").addClass("hidden");
   });
 }
+
+function shareSchedule() {
+  var data = calendar.canvas.toDataURL();
+  $("#img_data").val(data);
+  $("#share_form").submit();
+}
