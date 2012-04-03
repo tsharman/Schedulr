@@ -33,3 +33,5 @@ Notes
           $db_database = {enter your db name};
           $db_server = {enter your server};
         ?>
+
+- You can get a sql dump with data for courses and a single test user with uniqname: testuser, password: password at [https://s3.amazonaws.com/Schedulr/schedulr.sql](https://s3.amazonaws.com/Schedulr/schedulr.sql)
