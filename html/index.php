@@ -29,6 +29,11 @@ if(isset($_GET['schedule'])) {
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
 
+// Create token for posting image data through share button
+$token = md5(uniqid());
+$_SESSION['img_token'] = $token;
+session_write_close();
+
 ?>
  
 <html>
@@ -76,13 +81,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
       <div class="page-header">
         <h1>schedulr</h1>
       </div>
+      <?php 
+        if($_GET['from'] == "fb")
+          echo <h3>Successfully posted to Facebook!</h3>;
+      ?>
 
       <!-- Top row buttons -->
       <div class="row">
         <div class="span12">
         <?php
           $header_buttons = <div class="btn-toolbar"></div>;
-          $list = <div class="pull-left btn-group" style="width:500px"></div>;
+          $list = <div class="pull-left btn-group"></div>;
           
           $user = new User($_SESSION['user']);
           $schedules = $user->getScheduleIDs();
@@ -98,23 +107,32 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
           $list->appendChild(<a class="btn" href="/schedule/new">New</a>);
 
           $header_buttons->appendChild($list);
+          $right_buttons = <div class="pull-right"></div>;
           if(isset($_GET['schedule'])) {
             $url = "/delete/".$_GET['schedule'];
-            $header_buttons->appendChild(
-              <div class="pull-right btn-group">
-                <a href={$url} class="btn btn-danger">
-                  Delete this schedule
+            $right_buttons->appendChild(
+              <div class="btn-group">
+                <a onclick="shareSchedule()" class="btn">
+                  Share
                 </a>
               </div>
             );
-            $header_buttons->appendChild(
-              <div class="pull-right btn-group">
+            $right_buttons->appendChild(
+              <div class="btn-group">
                 <a onclick="showSignup()" class="btn">
-                  Register this schedule
+                  Register
+                </a>
+              </div>
+            );
+            $right_buttons->appendChild(
+              <div class="btn-group">
+                <a href={$url} class="btn btn-danger">
+                  Delete
                 </a>
               </div>
             );
           }
+          $header_buttons->appendChild($right_buttons);
           echo $header_buttons;
         ?>
         </div>
@@ -122,6 +140,20 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
 
       <?php if($schedule_id) { ?>
       <br/>
+
+      <!-- Hidden form for sharing schedule -->
+      <?php
+      
+      $url = "/share/".$_SESSION['user']."/".$schedule_id;
+
+      echo
+        <form id="share_form" action={$url} method="post">
+          <input type="hidden" name="img_data" id="img_data"></input>
+          <input type="hidden" name="img_token" value={$token}></input>
+        </form>;
+    
+      ?>
+
       <div class="row">
 
         <!-- Calendar -->
