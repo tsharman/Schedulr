@@ -28,3 +28,4 @@ Notes
 -----
 - You will need to fill out all the config files to get started. They can all be found in the conf/ directory.
 - You can get a sql dump with data for courses and a single test user with uniqname: testuser, password: password at [https://s3.amazonaws.com/Schedulr/schedulr.sql](https://s3.amazonaws.com/Schedulr/schedulr.sql)
+- Images for the share functionality are stored in data/images. Make sure that directory exists and has the appropriate permissions.
