@@ -14,6 +14,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
       src="http://code.jquery.com/jquery-latest.min.js">
     </script>
     <script type="text/javascript" src="/assets/js/schedule.js"></script>
+    <script type="text/javascript" src="/assets/js/calendar.js"></script>
     <script type="text/javascript">
       var trial = true;
     </script>
@@ -52,7 +53,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
       <br/>
       <div class="row">
         <div class="span8">
-          <? echo <sc:calendar /> ?>
+          <div id="div-calendar" style="position: absolute"></div>
+          <canvas id="canvas-calendar" width="620px"></canvas>
         </div>
         <div class="span4">
           <input id="search-type" type="hidden" value="basic">

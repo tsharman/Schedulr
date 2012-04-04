@@ -3,15 +3,20 @@ var calendar = {
     this.canvas = document.getElementById('canvas-calendar');
     this.context = this.canvas.getContext('2d');
 
-    $.ajax({
-      url: "/lib/ajax/getscheduleclasses.php",
-      data: { id: schedule },
-      dataType: 'json',
-      context: calendar
-    }).done(function(data) {
-      this.courses = data;
+    if(trial) {
+      this.courses = new Array();
       this.redraw();
-    });
+    } else {
+      $.ajax({
+        url: "/lib/ajax/getscheduleclasses.php",
+        data: { id: schedule },
+        dataType: 'json',
+        context: calendar
+      }).done(function(data) {
+        this.courses = data;
+        this.redraw();
+      });
+    }
   },
 
   redraw: function() {

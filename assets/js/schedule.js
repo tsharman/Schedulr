@@ -1,5 +1,7 @@
 // Check if new user
 $(document).ready(function() {
+  if(trial)
+    return;
   $("#nux1").hide();
   if(newuser && schedule) {
     $("#nux1").delay(300).fadeIn(500); 
@@ -92,8 +94,12 @@ function addCourse(id) {
     if(calendar.ghosts[i].id == id)
       calendar.courses.push(calendar.ghosts[i]);
   } 
-  if(trial)
+
+  if(trial) {
+    calendar.redraw();
     return;
+  }
+
   $.ajax({
     url: "/lib/ajax/addclass.php",
     data: {id:id, schedule:schedule},
@@ -134,6 +140,10 @@ function removeCourse(id) {
   }
   calendar.courses = newCourses;
   calendar.redraw();
+
+  if(trial)
+    return;
+
   $.ajax({
     url: "/lib/ajax/removeclass.php",
     data: {id: id, schedule: schedule}
