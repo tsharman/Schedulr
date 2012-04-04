@@ -7,15 +7,16 @@ if(isset($_SESSION['user'])) {
 
 ?>
 
+<!DOCTYPE html>
 <html>
   <head>    
     <script 
       type="text/javascript" 
       src="http://code.jquery.com/jquery-latest.min.js">
     </script>
-    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/assets/js/login.js"></script>
     <link rel="stylesheet" type="text/css" href="/assets/css/master.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
 
     <!-- Google Analytics Code -->
@@ -42,7 +43,7 @@ if(isset($_SESSION['user'])) {
         Looks like you don't have an account. Sign up by re-entering your password. 
         <a href="#" onclick="removeSignup()">Not true, I just mistyped my uniqname</a>
       </div>
-      <div class="well" style="height:220px;">
+      <div class="well login-form-small">
         <form 
           id="login_form" 
           action="/lib/forms/loginprocessor.php" 
@@ -78,7 +79,7 @@ if(isset($_SESSION['user'])) {
           <a class="btn" href="/trial">Try it out</a>
         </div>
       </div>
-      <div class="well" style="height:390px;">
+      <div class="well about">
         <h2>Schedulr helps you schedule your classes</h2>
         <br/>
         <div class="row">

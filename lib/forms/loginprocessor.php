@@ -7,9 +7,9 @@ $password = $_POST['password'];
 
 // signing up
 if($_POST['submit_type'] == "signup") {
-  DBQuery("insert into users values ('$uniqname', '".sha1($password)."');");
+  DBQuery("insert into users values ('$uniqname', '".sha1($password)."', 1);");
   session_start();
-  $_SESSION['user'] = $row['uniqname'];
+  $_SESSION['user'] = $uniqname;
   header("Location: /");
 } 
 
