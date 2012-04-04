@@ -22,16 +22,9 @@ Features
 - Advanced search. Search by distribution requirements, number of credits or professor
 - Support for multiple schedules. Allows for alternate schedules, especially in the case that one doesn't work out
 - Asynchronous UI. No new page loads for searching, adding or removing classes.
+- Post to Facebook. Shares an image with your schedule to Facebook.
 
 Notes
 -----
-- You will need to include a util/config.php that defines a couple variables in db.php. Mine looks like: 
-    
-        <?php
-          $db_username = {enter your username};
-          $db_password = {enter your password};
-          $db_database = {enter your db name};
-          $db_server = {enter your server};
-        ?>
-
+- You will need to fill out all the config files to get started. They can all be found in the conf/ directory.
 - You can get a sql dump with data for courses and a single test user with uniqname: testuser, password: password at [https://s3.amazonaws.com/Schedulr/schedulr.sql](https://s3.amazonaws.com/Schedulr/schedulr.sql)
