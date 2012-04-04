@@ -43,6 +43,7 @@ session_write_close();
       var trial = false;
       <?php
         echo "var user = '".$_SESSION['user']."';"; 
+        echo "var newuser = ".$user->isNewUser().";";
         if($schedule_id)
           echo "var schedule = ".$schedule_id.";"; 
       ?>
@@ -232,7 +233,14 @@ session_write_close();
             </fieldset>
           </div>
           
-          <div id="results" style="margin-top: 20px; height:520px; overflow-y:scroll">
+          <!-- New User Tour -->
+          <div id="nux1">
+            <br/>
+            <h3>Search for a class to get started</h3>
+          </div>
+
+          <!-- Search Results -->
+          <div id="results" style="margin-top: 20px; height:520px; overflow-y:scroll"></div>
         </div>
       </div>
       <?php } ?>

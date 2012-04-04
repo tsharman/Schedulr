@@ -1,3 +1,14 @@
+// Check if new user
+$(document).ready(function() {
+  $("#nux1").hide();
+  if(newuser && schedule) {
+    $("#nux1").delay(300).fadeIn(500); 
+    $("#query").focus(function() {
+      $("#nux1").fadeOut(500); 
+    });
+  }
+});
+
 document.onkeydown=keyPressed;
 function keyPressed(e) {
   if(!e) e=window.event;
@@ -89,6 +100,12 @@ function addCourse(id) {
   }).done(function() {
     calendar.init();
   });
+
+  // No longer a new user!
+  if(newuser) {
+    $.ajax("/lib/ajax/removenewuser.php");
+    newuser = 0;
+  }
 }
 
 function ghostCourse(id) {

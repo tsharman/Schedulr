@@ -51,6 +51,16 @@ class User {
     }
     return $new_id;
   }
+
+  public function isNewUser() {
+    $result = DBSelectUsers("uniqname='" . $this->uniqname . "'");
+    $row = mysql_fetch_assoc($result);
+    return $row['newuser'];
+  }
+
+  public function removeNewUser() {
+    DBQuery("UPDATE users SET newuser=0 WHERE uniqname='" . $this->uniqname . "'");
+  }
 }
 
 ?>
