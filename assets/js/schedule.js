@@ -44,6 +44,11 @@ function showAdvancedSearch() {
   $("#advanced-search").removeClass("hidden");
   $("#search-type").val("advanced");
 }
+function closeAdvancedSearch() {
+  $("#advanced-search").addClass("hidden");
+  $("#basic-search").removeClass("hidden");
+  $("#search-type").val("basic");
+}
 
 function search() {
   $(results).html("");
