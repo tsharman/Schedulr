@@ -75,7 +75,7 @@ var calendar = {
       x2 = x1 + 115;
       y1 = ((course["caltime"][0] - 8) * 50) + 35;
       y2 = y1 + (course["caltime"][1] * 50);
-      this.fillRoundedRectangle(x1, y1, x2, y2, 5, "#555", "#BBB");
+      this.fillRoundedRectangle(x1, y1, x2, y2, 2, "#555", "#DDD");
 
       // Fill in courseinfo 
       this.context.strokeStyle = "#000";
