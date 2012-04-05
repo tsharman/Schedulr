@@ -6,6 +6,7 @@ if (!$_SESSION['user'])
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/user.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/schedule.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/xhp/init.php');
 
 $user = new User($_SESSION['user']);
 
@@ -26,8 +27,6 @@ if(isset($_GET['schedule'])) {
     exit;
   }
 }
-
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
 
 // Create token for posting image data through share button
 $token = md5(uniqid());

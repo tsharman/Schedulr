@@ -2,7 +2,7 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/user.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/schedule.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/ui/uicalendar.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/xhp/init.php');
 
 ?>
  
