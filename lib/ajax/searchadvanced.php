@@ -22,9 +22,8 @@ if($dist && $dist != "null") {
   if($query)
     $query .= " AND ";
 
-  $dist_arr = explode(",", $dist);
   $query .= "(";
-  foreach($dist_arr as $i => $dist_single) {
+  foreach($dist as $i => $dist_single) {
     if($i > 0) {
       $query .= " OR ";
     }
@@ -36,9 +35,8 @@ if($credits && $credits != "null") {
   if($query)
     $query .= " AND ";
 
-  $credits_arr = explode(",", $credits);
   $query .= "(";
-  foreach($credits_arr as $i => $credits_single) {
+  foreach($credits as $i => $credits_single) {
     if($i > 0) {
       $query .= " OR ";
     }
@@ -53,6 +51,8 @@ if($prof) {
   $query .= "prof LIKE '".$prof."'";
 }
 
+if(!$query)
+  return;
 $query .= " GROUP BY courseid";
 $query .= " ORDER BY dept, catalognum, section";
 $result = DBSelectCourses($query);
