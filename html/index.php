@@ -230,9 +230,9 @@ session_write_close();
                 </div>
               </div>
               <div class="form-actions">
-		<button class="btn" onclick="closeAdvancedSearch()">Back</button>
+                <button class="btn" onclick="closeAdvancedSearch()">Back</button>
                 <button class="btn" onclick="search()">Search</button>
-	      </div>
+              </div>
             </fieldset>
           </div>
           
