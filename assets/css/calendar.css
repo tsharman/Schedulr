@@ -36,3 +36,9 @@ tr {
   background-color: #f9ebff;
 }
 
+
+#results {
+	margin-top: 20px;
+	height: 520px;
+	overflow-y: auto;
+}
