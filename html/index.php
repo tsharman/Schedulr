@@ -240,7 +240,7 @@ session_write_close();
           </div>
 
           <!-- Search Results -->
-          <div id="results" style="margin-top: 20px; height:520px; overflow-y:scroll"></div>
+          <div id="results"></div>
         </div>
       </div>
       <?php } ?>
