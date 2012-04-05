@@ -80,7 +80,10 @@ session_write_close();
     </div>
     <div class="container">
       <div class="page-header">
-        <h1>schedulr</h1>
+        <h1>
+          schedulr
+          <a class="btn pull-right" href="/logout">Logout</a>
+        </h1>
       </div>
       <?php 
         if($_GET['from'] == "fb")
