@@ -4,7 +4,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/conf/main.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/util/db.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/xhp/init.php');
 
-if($_SESSION['user'] != $admin)
+session_start();
+if($_SESSION['user'] != $main_admin)
   header("Location: /login");
 
 ?>
