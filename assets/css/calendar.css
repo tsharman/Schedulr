@@ -24,6 +24,11 @@ tr {
   opacity : .5;
 }
 
+.courseInfo {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .LEC.well {
   background-color: #ebf9ff;
 }
